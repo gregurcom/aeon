@@ -42,83 +42,10 @@ nav div a {
     border-bottom: 2px solid pink;
 }
 
-#profile ul {
-    list-style-type:none;
-}
-
-#profile {
-    margin: 20px;
-}
-
-#profile ul li {
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-img {
-    border-radius: 1rem;
-}
-
-#profile {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    margin-top: 50px;
-}
-
-#stat div {
-    text-align: center;
-}
-
-progress {
-    margin-left: 10px;
-}
-
-progress {
-    -webkit-appearance: none;
-    appearance: none;
-    border: 1px solid black;
-    border-radius: 30px;
-}
-/* Chrome */
-progress::-webkit-progress-value {
-    background: pink;
-    border-radius: 30px;
-}
-progress::-webkit-progress-bar {
-    background: white;
-    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
-}
-
-#quote {
-    position: absolute;
-    bottom: 25px;
-}
-
-/* goal page */
-#goal {
-    margin: 50px 20px 0px 20px;
-}
-
-#goal ol li {
-    margin-bottom: 10px;
-    font-size: 20px;
-    margin-left: 20px;
-}
-
-form {
-    position: absolute;
-    bottom: 100px;
-    margin-left: 400px;
-    text-align: center;
-}
-
-#div {
-    text-align: center;
-}
-
 input {
     height: 30px;
     width: 250px;
+    margin-bottom: 50x;
     padding-left: 10px;
     border: 2px solid pink;
     border-radius: 60px;
@@ -142,10 +69,4 @@ button:hover {
 
 input:focus {
     outline: none;
-}
-
-.text-muted {
-    margin-left: 15px;
-    color: gray;
-    opacity: 0.8;
 }
