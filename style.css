@@ -22,7 +22,7 @@ main {
 
 nav {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 5fr;
+    grid-template-columns: 1fr 1fr 1fr 5fr;
     margin: 20px;
     padding: 0px 5px 0px 5px;
     height: 40px;
@@ -42,7 +42,7 @@ nav div a {
     border-bottom: 2px solid pink;
 }
 
-#active ul {
+#profile ul {
     list-style-type:none;
 }
 
@@ -99,7 +99,7 @@ progress::-webkit-progress-bar {
     margin: 50px 20px 0px 20px;
 }
 
-#goal ul li {
+#goal ol li {
     margin-bottom: 10px;
     font-size: 20px;
     margin-left: 20px;
@@ -142,4 +142,10 @@ button:hover {
 
 input:focus {
     outline: none;
+}
+
+.text-muted {
+    margin-left: 15px;
+    color: gray;
+    opacity: 0.8;
 }
