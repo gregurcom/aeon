@@ -5,7 +5,7 @@
 
 main {
     min-height: 100vh;
-    background: linear-gradient(to right top, pink, pink);
+    background: linear-gradient(to right top, #ffc0cb, pink);
     align-items: center;
     display: flex;
     justify-content: center;
@@ -57,7 +57,7 @@ button {
     border-radius: 60px;
     padding: 8px 13px 8px 13px;
     background-color: transparent;
-    margin-top: 8px;
+    margin-top: 10px;
     height: 33px;
     width: 90px;
     cursor: pointer;

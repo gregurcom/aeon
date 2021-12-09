@@ -1,7 +1,8 @@
 input {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #form {
+    margin-top: 100px;
     text-align: center;
 }
