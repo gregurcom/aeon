@@ -1,7 +1,7 @@
-### Progress
+# Progress
 An app to improve your productivity
 
-![GitHub Logo](images/home.png)
+![GitHub Logo](./public/images/home.png)
 
 ## Install application
 1. Clone app ``git clone https://github.com/gregurcom/progress.git``
@@ -13,5 +13,5 @@ An app to improve your productivity
 
 ``npm run dev``
 
-# Design idea
+### Design idea
 *https://www.youtube.com/watch?v=O7WbVj5apxU&t=517s*
