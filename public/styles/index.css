@@ -50,3 +50,7 @@ progress::-webkit-progress-bar {
     position: absolute;
     bottom: 25px;
 }
+
+#logo {
+    text-align: center;
+}
