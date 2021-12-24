@@ -16,7 +16,8 @@ body {
 }
 
 .content {
-    width: 80%;
+    margin: 50px 0px 50px 0px;
+    width: 85%;
     height: 50%;
     min-height: 85vh;
     backdrop-filter: blur(10px);
@@ -29,9 +30,8 @@ body {
 
 nav {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 5fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 5fr;
     margin: 20px;
-    padding: 0px 5px 0px 5px;
     height: 40px;
 }
 
