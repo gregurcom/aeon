@@ -8,8 +8,7 @@
 body {
     min-height: 100vh;
     background-image: url("../images/cosmos5.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -31,7 +30,6 @@ body {
 
 nav {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 5fr;
     margin: 20px;
     height: 40px;
 }
@@ -77,4 +75,28 @@ button:hover {
 
 input:focus {
     outline: none;
+}
+
+@media (min-width: 750px) {
+    nav {
+        grid-template-columns: 1fr 1fr 1fr 1fr 5fr;
+    }
+}
+
+@media (max-width: 1000px) {
+    nav {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    nav {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    #logo {
+        margin-top: 40px;
+    }
+    #login {
+        text-align: start;
+    }
 }

@@ -18,7 +18,6 @@ img {
 
 #profile {
     display: grid;
-    grid-template-columns: 1fr 3fr;
     margin-top: 50px;
 }
 
@@ -47,10 +46,42 @@ progress::-webkit-progress-bar {
 }
 
 #quote {
-    position: absolute;
-    bottom: 25px;
+    text-align: center;
+    margin-top: 110px;
 }
 
 #logo {
     text-align: center;
+}
+
+@media (min-width: 750px) {
+    #profile {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media (max-width: 751px) {
+    #logo img {
+        width: 100px;
+        height: 120px;
+    }
+
+    #statistics {
+        display: none;
+    }
+
+    #stat {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    #quote {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 390px) {
+    #quote {
+        margin-top: 40px;
+    }
 }
