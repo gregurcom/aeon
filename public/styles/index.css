@@ -58,6 +58,10 @@ progress::-webkit-progress-bar {
     #profile {
         grid-template-columns: 1fr 2fr;
     }
+
+    #quote {
+        margin-top: 150px;
+    }
 }
 
 @media (max-width: 751px) {
