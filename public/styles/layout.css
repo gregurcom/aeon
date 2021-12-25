@@ -26,7 +26,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 30px;
     position: relative;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 nav {
