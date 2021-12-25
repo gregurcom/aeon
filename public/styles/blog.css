@@ -31,3 +31,30 @@ p {
     color: darkgrey;
     opacity: 0.4;
 }
+
+@media (max-width: 600px) {
+    .description {
+        display: none;
+    }
+
+    .article-image img {
+        width: 100px;
+        height: 60px;
+    }
+
+    #feed {
+        margin-top: 90px;
+    }
+
+    .article {
+        margin-top: 30px;
+    }
+
+    .article h3 {
+        font-size: 15px;
+    }
+
+    .text-muted {
+        font-size: 10px;
+    }
+}
