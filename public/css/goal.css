@@ -1,0 +1,20 @@
+#goal {
+    margin: 50px 20px 0px 20px;
+}
+
+ol li {
+    margin-bottom: 10px;
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+.text-muted {
+    margin-left: 15px;
+    color: gray;
+    opacity: 0.8;
+}
+
+form {
+    margin-top: 120px;
+    text-align: center;
+}
