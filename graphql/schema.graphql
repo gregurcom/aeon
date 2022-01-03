@@ -15,6 +15,12 @@ type Query {
     goal(id: ID @eq): Goal @find
 }
 
+type Mutation {
+    createArticle(title: String! body: String! user_id: ID! image: String!): Article @create
+    createGoal(title: String! finished_at: DateTime user_id: ID!): Goal @create
+    createTask(title: String! description: String user_id: ID! finished_at: DateTime): Task @create
+}
+
 type User {
     id: ID!
     name: String!
@@ -40,9 +46,9 @@ type Article {
 type Task {
     id: ID!
     title: String!
-    description: String!
+    description: String
     user: User! @belongsTo
-    finished_at: DateTime!
+    finished_at: DateTime
     created_at: DateTime!
     updated_at: DateTime!
 }
@@ -51,7 +57,7 @@ type Goal {
     id: ID!
     title: String!
     user: User! @belongsTo
-    finished_at: DateTime!
+    finished_at: DateTime
     created_at: DateTime!
     updated_at: DateTime!
 }
