@@ -1,31 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progress - home</title>
+@extends('layouts.layout')
+
+@section('header')
+    @parent
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&family=Space+Mono&display=swap" rel="stylesheet">
-</head>
-<body>
+@endsection
+
+@section('content')
     <section class="content">
         <nav>
             <div>
-                <a href="index.html" class="neon-button">Home</a>
+                <a href="/" class="neon-button">Home</a>
             </div>
             <div>
-                <a href="task.html">Tasks</a>
+                <a href="task">Tasks</a>
             </div>
             <div>
-                <a href="goal.html">Goals</a>
+                <a href="goal">Goals</a>
             </div>
             <div>
-                <a href="blog.html">Blog</a>
+                <a href="blog">Blog</a>
             </div>
             <div id="login">
-                <a href="login.html">Log in</a>
+                <a href="login">Log in</a>
             </div>
         </nav>
         <div id="profile">
@@ -49,5 +45,4 @@
             </q>
         </div>
     </section>
-</body>
-</html>
+@endsection
