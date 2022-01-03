@@ -16,9 +16,45 @@ type Query {
 }
 
 type Mutation {
-    createArticle(title: String! body: String! user_id: ID! image: String!): Article @create
-    createGoal(title: String! finished_at: DateTime user_id: ID!): Goal @create
-    createTask(title: String! description: String user_id: ID! finished_at: DateTime): Task @create
+    createArticle(
+        title: String! @rules(apply: ["required", "min:3"])
+        body: String! @rules(apply: ["required", "min:3"])
+        user_id: ID!
+        image: String!
+    ): Article @create
+    updateArticle(
+        id: ID!
+        title: String! @rules(apply: ["required", "min:3"])
+        body: String! @rules(apply: ["required", "min:3"])
+        image: String!
+    ): Article @update
+    deleteArticle(id: ID!): Article @delete
+
+    createGoal(
+        title: String! @rules(apply: ["required", "min:3"])
+        finished_at: DateTime
+        user_id: ID!
+    ): Goal @create
+    updateGoal(
+        id: ID!
+        title: String! @rules(apply: ["required", "min:3"])
+        finished_at: DateTime
+    ): Goal @update
+    deleteGoal(id: ID!): Goal @delete
+
+    createTask(
+        title: String! @rules(apply: ["required", "min:3"])
+        description: String @rules(apply: ["nullable", "min:3"])
+        user_id: ID!
+        finished_at: DateTime
+    ): Task @create
+    updateTask(
+        id: ID!
+        title: String! @rules(apply: ["required", "min:3"])
+        description: String @rules(apply: ["nullable", "min:3"])
+        finished_at: DateTime
+    ): Task @update
+    deleteTask(id: ID!): Task @delete
 }
 
 type User {
