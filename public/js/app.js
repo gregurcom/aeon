@@ -19372,10 +19372,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/login.css":
-/*!*********************************!*\
-  !*** ./resources/css/login.css ***!
-  \*********************************/
+/***/ "./resources/css/auth.css":
+/*!********************************!*\
+  !*** ./resources/css/auth.css ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -19701,7 +19701,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/login": 0,
+/******/ 			"css/auth": 0,
 /******/ 			"css/goal": 0,
 /******/ 			"css/blog": 0,
 /******/ 			"css/index": 0,
@@ -19756,13 +19756,13 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/login","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/login","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/layout.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/login","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/index.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/login","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/blog.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/login","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/goal.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/login","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/login.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/login","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/task.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/auth","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/auth","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/layout.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/auth","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/index.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/auth","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/blog.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/auth","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/goal.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/auth","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/auth.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/auth","css/goal","css/blog","css/index","css/layout","css/task"], () => (__webpack_require__("./resources/css/task.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

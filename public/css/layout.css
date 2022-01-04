@@ -52,18 +52,18 @@ input {
     height: 30px;
     width: 250px;
     padding-left: 10px;
-    border: 2px solid pink;
+    border: 2px solid black;
     border-radius: 60px;
     background-color: transparent;
 }
 
 button {
-    border: 2px solid pink;
+    border: 2px solid black;
     border-radius: 60px;
     background-color: transparent;
     margin-top: 10px;
-    height: 33px;
-    width: 90px;
+    height: 45px;
+    width: 115px;
     cursor: pointer;
 }
 
@@ -130,3 +130,4 @@ input:focus {
 .neon-button:hover::before {
     opacity: 1;
 }
+

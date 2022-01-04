@@ -36,6 +36,11 @@ Route::middleware('app.unauthorized')->group(function () {
 });
 
 Route::get('login', function () {
-    return view('login');
+    return view('auth.login');
 
 })->name('login');
+
+Route::get('registration', function () {
+    return view('auth.registration');
+
+})->name('registration');
