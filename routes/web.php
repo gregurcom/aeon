@@ -16,19 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('app.unauthorized')->group(function () {
     Route::get('/', function () {
         return view('index');
-    });
+    })->name('home');
 
     Route::get('goal', function () {
         return view('goal');
-    });
+    })->name('goal');
 
     Route::get('task', function () {
         return view('task');
-    });
+    })->name('task');
 
     Route::get('blog', function () {
         return view('blog');
-    });
+    })->name('blog');
 
     Route::get('article', function () {
         return view('article');
@@ -37,10 +37,8 @@ Route::middleware('app.unauthorized')->group(function () {
 
 Route::get('login', function () {
     return view('auth.login');
-
 })->name('login');
 
 Route::get('registration', function () {
     return view('auth.registration');
-
 })->name('registration');

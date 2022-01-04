@@ -9,19 +9,19 @@
     <section class="content">
         <nav>
             <div>
-                <a href="/">Home</a>
+                <a href="{{ route('home') }}">Home</a>
             </div>
             <div>
-                <a href="task">Tasks</a>
+                <a href="{{ route('task') }}">Tasks</a>
             </div>
             <div>
-                <a href="goal">Goals</a>
+                <a href="{{ route('goal') }}">Goals</a>
             </div>
             <div>
-                <a href="blog" class="neon-button">Blog</a>
+                <a href="{{ route('blog') }}" class="neon-button">Blog</a>
             </div>
             <div id="login">
-                <a href="login">Log in</a>
+                <a href="{{ route('login') }}">Log in</a>
             </div>
         </nav>
         <div id="feed">
