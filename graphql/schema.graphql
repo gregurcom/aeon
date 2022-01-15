@@ -34,20 +34,20 @@ type Mutation {
         title: String! @rules(apply: ["required", "min:3"])
         body: String! @rules(apply: ["required", "min:3"])
         user_id: ID!
-        image: String!
+        image: String
     ): Article @create
     updateArticle(
         id: ID!
-        title: String! @rules(apply: ["required", "min:3"])
-        body: String! @rules(apply: ["required", "min:3"])
-        image: String!
+        title: String @rules(apply: ["min:3"])
+        body: String @rules(apply: ["min:3"])
+        image: String @rules(apply: ["image"])
     ): Article @update
     deleteArticle(id: ID!): Article @delete
 
     createGoal(
+        user_id: ID!
         title: String! @rules(apply: ["required", "min:3"])
         finished_at: DateTime
-        user_id: ID!
     ): Goal @create
     updateGoal(
         id: ID!
@@ -57,14 +57,14 @@ type Mutation {
     deleteGoal(id: ID!): Goal @delete
 
     createTask(
+        user_id: ID!
         title: String! @rules(apply: ["required", "min:3"])
         description: String @rules(apply: ["nullable", "min:3"])
-        user_id: ID!
         finished_at: DateTime
     ): Task @create
     updateTask(
         id: ID!
-        title: String! @rules(apply: ["required", "min:3"])
+        title: String @rules(apply: ["min:3"])
         description: String @rules(apply: ["nullable", "min:3"])
         finished_at: DateTime
     ): Task @update
