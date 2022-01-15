@@ -3,6 +3,9 @@ An app to improve your productivity
 
 ![GitHub Logo](./public/images/home.png)
 
+## Postman Collection
+https://www.getpostman.com/collections/27ca10baa7e8ca2705cf
+
 ## Install application
 1. Clone app ``git clone https://github.com/gregurcom/progress.git``
 2. Install Install all dependence
