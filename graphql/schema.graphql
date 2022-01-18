@@ -15,6 +15,18 @@ type Query {
     goal(id: ID @eq): Goal @find
 }
 
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    avatar: String!
+    articles: [Article!]! @hasMany
+    tasks: [Task!]! @hasMany
+    goals: [Goal!]! @hasMany
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
 type Article {
     id: ID!
     title: String!
@@ -98,16 +110,4 @@ type Mutation {
         finished_at: DateTime
     ): Task @update
     deleteTask(id: ID!): Task @delete
-}
-
-type User {
-    id: ID!
-    name: String!
-    email: String!
-    avatar: String!
-    articles: [Article!]! @hasMany
-    tasks: [Task!]! @hasMany
-    goals: [Goal!]! @hasMany
-    created_at: DateTime!
-    updated_at: DateTime!
 }
