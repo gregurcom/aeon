@@ -5,9 +5,10 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
 type Query {
+    me: User @auth
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
-    articles: [Article!]! @paginate(defaultCount: 10)
+    articles: [Article!]! @guard @paginate(defaultCount: 10)
     article(id: ID @eq): Article @find
     tasks: [Task!]! @paginate(defaultCount: 5)
     task(id: ID @eq): Task @find
@@ -57,11 +58,16 @@ type Goal {
 }
 
 type Mutation {
-    createUser(
+    login(
+        email: String!
+        password: String!
+    ): String @field(resolver: "AuthMutator@login")
+    registration(
         name: String! @rules(apply: ["required", "min:3"])
         email: String! @rules(apply: ["required", "email", "unique:users,email"])
-        password: String! @rules(apply: ["required", "min:8"])
-    ): User @create
+        password: String! @hash @rules(apply: ["required", "min:8"])
+    ): String @field(resolver: "AuthMutator@registration")
+
     updateUser(
         id: ID! @rules(apply: ["required"])
         name: String @rules(apply: ["min:3"])
