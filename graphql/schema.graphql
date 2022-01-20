@@ -8,12 +8,12 @@ type Query {
     me: User @auth
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
-    articles: [Article!]! @guard @paginate(defaultCount: 10)
+    articles: [Article!]! @paginate(defaultCount: 10)
     article(id: ID @eq): Article @find
-    tasks: [Task!]! @paginate(defaultCount: 5)
-    task(id: ID @eq): Task @find
-    goals: [Goal!]! @paginate(defaultCount: 5)
-    goal(id: ID @eq): Goal @find
+    tasks: [Task!]! @guard @paginate(defaultCount: 5)
+    task(id: ID @eq): Task @guard @find
+    goals: [Goal!]! @guard @paginate(defaultCount: 5)
+    goal(id: ID @eq): Goal @guard @find
 }
 
 type User {
@@ -74,46 +74,46 @@ type Mutation {
         email: String @rules(apply: ["email", "unique:users,email"])
         password: String @rules(apply: ["min:8"])
         avatar: String @rules(apply: ["image"])
-    ): User @update
-    deleteUser(id: ID! @rules(apply: ["required"])): User @delete
+    ): User @guard @update
+    deleteUser(id: ID! @rules(apply: ["required"])): User @guard @delete
 
     createArticle(
         title: String! @rules(apply: ["required", "min:3"])
         body: String! @rules(apply: ["required", "min:3"])
         user_id: ID!
         image: String
-    ): Article @create
+    ): Article @guard @create
     updateArticle(
         id: ID!
         title: String @rules(apply: ["min:3"])
         body: String @rules(apply: ["min:3"])
         image: String @rules(apply: ["image"])
-    ): Article @update
-    deleteArticle(id: ID!): Article @delete
+    ): Article @guard @update
+    deleteArticle(id: ID!): Article @guard @delete
 
     createGoal(
         user_id: ID!
         title: String! @rules(apply: ["required", "min:3"])
         finished_at: DateTime
-    ): Goal @create
+    ): Goal @guard @create
     updateGoal(
         id: ID!
         title: String! @rules(apply: ["required", "min:3"])
         finished_at: DateTime
-    ): Goal @update
-    deleteGoal(id: ID!): Goal @delete
+    ): Goal @guard @update
+    deleteGoal(id: ID!): Goal @guard @delete
 
     createTask(
         user_id: ID!
         title: String! @rules(apply: ["required", "min:3"])
         description: String @rules(apply: ["nullable", "min:3"])
         finished_at: DateTime
-    ): Task @create
+    ): Task @guard @create
     updateTask(
         id: ID!
         title: String @rules(apply: ["min:3"])
         description: String @rules(apply: ["nullable", "min:3"])
         finished_at: DateTime
-    ): Task @update
-    deleteTask(id: ID!): Task @delete
+    ): Task @guard @update
+    deleteTask(id: ID!): Task @guard @delete
 }
