@@ -26,6 +26,10 @@ Route::get('task', function () {
     return view('task');
 })->name('task');
 
+Route::get('achievement', function () {
+    return view('achievement');
+})->name('achievement');
+
 Route::get('blog', function () {
     return view('blog');
 })->name('blog');

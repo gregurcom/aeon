@@ -12,13 +12,13 @@
                 <a href="{{ route('home') }}">Home</a>
             </div>
             <div>
-                <a href="{{ route('task') }}" class="neon-button">Tasks</a>
+                <a href="{{ route('task') }}" id="active">Tasks</a>
             </div>
             <div>
                 <a href="{{ route('goal') }}">Goals</a>
             </div>
             <div>
-                <a href="{{ route('blog') }}">Blog</a>
+                <a href="{{ route('achievement') }}">Achievements</a>
             </div>
             <div id="login">
                 <a href="{{ route('login') }}">Log in</a>
@@ -35,6 +35,11 @@
                 <div id="form">
                     <form>
                         <input type="text" name="task" placeholder="Write a task...">
+                        <br>
+                        <select name="visibility">
+                            <option value="private">Private</option>
+                            <option value="public">Public</option>
+                        </select>
                         <br>
                         <button type="submit">Add</button>
                     </form>

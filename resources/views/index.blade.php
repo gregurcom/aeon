@@ -9,7 +9,7 @@
     <section class="content">
         <nav>
             <div>
-                <a href="{{ route('home') }}" class="neon-button">Home</a>
+                <a href="{{ route('home') }}" id="active">Home</a>
             </div>
             <div>
                 <a href="{{ route('task') }}">Tasks</a>
@@ -18,7 +18,7 @@
                 <a href="{{ route('goal') }}">Goals</a>
             </div>
             <div>
-                <a href="{{ route('blog') }}">Blog</a>
+                <a href="{{ route('achievement') }}">Achievements</a>
             </div>
             <div id="login">
                 <a href="{{ route('login') }}">Log in</a>
@@ -39,10 +39,10 @@
                 </ul>
             </div>
         </div>
-        <div id="quote">
-            <q cite="https://www.mozilla.org/en-US/about/history/details/" title="Daily quote">
-                Worry never robs tomorrow of its sorrow. It only saps today of its joy.
-            </q>
-        </div>
+{{--        <div id="quote">--}}
+{{--            <q cite="https://www.mozilla.org/en-US/about/history/details/" title="Daily quote">--}}
+{{--                Worry never robs tomorrow of its sorrow. It only saps today of its joy.--}}
+{{--            </q>--}}
+{{--        </div>--}}
     </section>
 @endsection
