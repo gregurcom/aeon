@@ -80,40 +80,37 @@ type Mutation {
     createArticle(
         title: String! @rules(apply: ["required", "min:3"])
         body: String! @rules(apply: ["required", "min:3"])
-        user_id: ID!
         image: String
-    ): Article @guard @create
+    ): Article @guard @create @inject(context: "user.id", name: "user_id")
     updateArticle(
         id: ID!
         title: String @rules(apply: ["min:3"])
         body: String @rules(apply: ["min:3"])
         image: String @rules(apply: ["image"])
-    ): Article @guard @update
-    deleteArticle(id: ID!): Article @guard @delete
+    ): Article @guard @update @can(ability: "update", find: "id")
+    deleteArticle(id: ID!): Article @guard @delete @can(ability: "delete", find: "id")
 
     createGoal(
-        user_id: ID!
         title: String! @rules(apply: ["required", "min:3"])
         finished_at: DateTime
-    ): Goal @guard @create
+    ): Goal @guard @create @inject(context: "user.id", name: "user_id")
     updateGoal(
         id: ID!
         title: String! @rules(apply: ["required", "min:3"])
         finished_at: DateTime
-    ): Goal @guard @update
-    deleteGoal(id: ID!): Goal @guard @delete
+    ): Goal @guard @update @can(ability: "update", find: "id")
+    deleteGoal(id: ID!): Goal @guard @delete @can(ability: "delete", find: "id")
 
     createTask(
-        user_id: ID!
         title: String! @rules(apply: ["required", "min:3"])
         description: String @rules(apply: ["nullable", "min:3"])
         finished_at: DateTime
-    ): Task @guard @create
+    ): Task @guard @create @inject(context: "user.id", name: "user_id")
     updateTask(
         id: ID!
         title: String @rules(apply: ["min:3"])
         description: String @rules(apply: ["nullable", "min:3"])
         finished_at: DateTime
-    ): Task @guard @update
-    deleteTask(id: ID!): Task @guard @delete
+    ): Task @guard @update @can(ability: "update", find: "id")
+    deleteTask(id: ID!): Task @guard @delete @can(ability: "delete", find: "id")
 }
