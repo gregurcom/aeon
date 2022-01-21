@@ -42,6 +42,7 @@ type Task {
     id: ID!
     title: String!
     description: String
+    visibility: String
     user: User! @belongsTo
     finished_at: DateTime
     created_at: DateTime!
@@ -51,6 +52,7 @@ type Task {
 type Goal {
     id: ID!
     title: String!
+    visibility: String
     user: User! @belongsTo
     finished_at: DateTime
     created_at: DateTime!

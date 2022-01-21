@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @property int $id
  * @property string $title
+ * @property string $visibility
  * @property int $user_id
  * @property string $finished_at
  * @property \Illuminate\Support\Carbon|null $created_at
