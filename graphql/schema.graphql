@@ -14,6 +14,8 @@ type Query {
     task(id: ID @eq): Task @guard @find
     goals: [Goal!]! @guard @paginate(defaultCount: 5)
     goal(id: ID @eq): Goal @guard @find
+    achievements: [Achievement!]! @guard @paginate(defaultCount: 5)
+    achievement(id: ID @eq): Achievement @guard @find
 }
 
 type User {
@@ -24,6 +26,7 @@ type User {
     articles: [Article!]! @hasMany
     tasks: [Task!]! @hasMany
     goals: [Goal!]! @hasMany
+    achievements: [Achievement!]! @belongsToMany
     created_at: DateTime!
     updated_at: DateTime!
 }
@@ -55,6 +58,15 @@ type Goal {
     visibility: String
     user: User! @belongsTo
     finished_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Achievement {
+    id: ID!
+    name: String!
+    mark: Int!
+    users: [User!]! @belongsToMany
     created_at: DateTime!
     updated_at: DateTime!
 }
