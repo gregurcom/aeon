@@ -1,5 +1,5 @@
 # Progress
-An app to improve your productivity
+App to track your and your friends progress
 
 ![GitHub Logo](./public/images/home.png)
 
