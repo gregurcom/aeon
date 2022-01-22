@@ -56,12 +56,12 @@ progress::-webkit-progress-bar {
 }
 
 #logo {
-    text-align: center;
+    text-align: right;
 }
 
 @media (min-width: 750px) {
     #profile {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 4fr;
     }
 
     #quote {

@@ -19,6 +19,10 @@ li:hover {
     padding-left: 8px;
 }
 
+li:hover > .text-muted {
+    color: white;
+}
+
 .text-muted {
     margin-left: 15px;
     color: gray;
