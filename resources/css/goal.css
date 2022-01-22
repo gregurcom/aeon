@@ -1,12 +1,6 @@
-#goal {
-    margin: 50px 20px 0px 20px;
-}
-
 ul li {
     margin-bottom: 10px;
     font-size: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
     list-style-type: none;
     transition: 0.2s;
 }
