@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section('title', 'Progress - achievements')
+
 @section('content')
     <section class="content">
         <nav>

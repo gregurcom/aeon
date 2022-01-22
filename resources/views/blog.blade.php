@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section('title', 'Progress - blog')
+
 @section('header')
     @parent
     <link rel="stylesheet" href="{{ asset('css/blog.css') }}">

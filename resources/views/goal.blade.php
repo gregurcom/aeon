@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section('title', 'Progress - goals')
+
 @section('header')
     @parent
     <link rel="stylesheet" href="{{ asset('css/goal.css') }}">
