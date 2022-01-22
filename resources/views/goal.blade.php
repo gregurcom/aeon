@@ -26,11 +26,11 @@
         </nav>
         <div id="goal">
             <div id="content">
-                <ol>
+                <ul>
                     <li>To become a programmer</li>
                     <li>To do more exersices</li>
                     <li>To wake up early</li>
-                </ol>
+                </ul>
                 <div id="form">
                     <form>
                         <input type="text" name="goal" placeholder="Write a goal...">

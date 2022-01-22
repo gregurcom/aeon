@@ -105,8 +105,9 @@ input:focus {
 
 select {
     background-color: transparent;
-    margin-top: 10px;
-    border-radius: 20px;
+    margin-top: 6px;
+    border-radius: 60px;
     width: 250px;
+    padding: 3px;
 }
 

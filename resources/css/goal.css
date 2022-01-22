@@ -2,10 +2,21 @@
     margin: 50px 20px 0px 20px;
 }
 
-ol li {
+ul li {
     margin-bottom: 10px;
     font-size: 20px;
     margin-left: 40px;
+    margin-right: 40px;
+    list-style-type: none;
+    transition: 0.2s;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: slategrey;
+    height: 30px;
+    padding-top: 1px;
+    padding-left: 8px;
 }
 
 .text-muted {
@@ -15,6 +26,7 @@ ol li {
 }
 
 form {
-    margin-top: 120px;
+    margin-top: 100px;
+    margin-bottom: 20px;
     text-align: center;
 }

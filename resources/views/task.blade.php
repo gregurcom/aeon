@@ -26,12 +26,13 @@
         </nav>
         <div id="goal">
             <div id="content">
-                <ol>
+                <ul>
                     <li>Drink coffee <span class="text-muted">26 dec</span></li>
                     <li>Mentor (course component) <span class="text-muted">27 dec</span></li>
                     <li>AG laboratoare <span class="text-muted">2 jan</span></li>
                     <li>BZ laboratoare <span class="text-muted">2 jan</span></li>
-                </ol>
+                    <li>Drink coffee <span class="text-muted">26 dec</span></li>
+                </ul>
                 <div id="form">
                     <form>
                         <input type="text" name="task" placeholder="Write a task...">
