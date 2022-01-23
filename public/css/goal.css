@@ -29,3 +29,16 @@ form {
     text-align: center;
 }
 
+input[type=radio] {
+    height: 1em;
+    width: 20px;
+}
+
+#radio {
+    margin-top: 8px;
+}
+
+#radio #public {
+    margin-left: 40px;
+}
+
