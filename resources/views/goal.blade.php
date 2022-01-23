@@ -35,13 +35,16 @@
                 </ul>
                 <div id="form">
                     <form>
-                        <input type="text" name="goal" placeholder="Write a goal...">
-                        <br>
-                        <select name="visibility">
-                            <option value="private">Private</option>
-                            <option value="public">Public</option>
-                        </select>
-                        <br>
+                        <div>
+                            <input type="text" name="goal" placeholder="Write a goal...">
+                        </div>
+                        <div id="radio">
+                            <label for="private-radio" id="private">Private</label>
+                            <input type="radio" id="private-radio" name="visibility" value="private">
+
+                            <label for="public-radio" id="public">Public</label>
+                            <input type="radio" id="public-radio" name="visibility" value="public">
+                        </div>
                         <button type="submit">Add</button>
                     </form>
                 </div>

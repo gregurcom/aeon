@@ -3,7 +3,7 @@
 }
 
 #profile {
-    margin: 20px;
+    margin: 80px;
     color: white;
 }
 
@@ -18,7 +18,7 @@ img {
 
 #profile {
     display: grid;
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 #statistics {
@@ -49,18 +49,13 @@ progress::-webkit-progress-bar {
     background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
 }
 
-#quote {
-    text-align: center;
-    margin-top: 110px;
-}
-
 #logo {
-    text-align: right;
+    text-align: center;
 }
 
 @media (min-width: 750px) {
     #profile {
-        grid-template-columns: 1fr 4fr;
+        grid-template-columns: 1fr 2fr 2fr;
     }
 
     #quote {
