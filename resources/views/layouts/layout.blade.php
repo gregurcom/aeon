@@ -14,6 +14,28 @@
     @show
 </head>
 <body>
+<section class="content">
+    <nav>
+        <div>
+            <a href="{{ route('home') }}" class="{{ Route::is('home') ? 'active' : '' }}">Home</a>
+        </div>
+        <div>
+            <a href="{{ route('task') }}" class="{{ Route::is('task') ? 'active' : '' }}">Tasks</a>
+        </div>
+        <div>
+            <a href="{{ route('goal') }}" class="{{ Route::is('goal') ? 'active' : '' }}">Goals</a>
+        </div>
+        <div>
+            <a href="{{ route('blog') }}" class="{{ Route::is('blog') || Route::is('article') ? 'active' : '' }}">Blog</a>
+        </div>
+        <div>
+            <a href="{{ route('achievement') }}" class="{{ Route::is('achievement') ? 'active' : '' }}">Achievements</a>
+        </div>
+        <div id="login">
+            <a href="{{ route('login') }}" class="{{ Route::is('login') || Route::is('registration') ? 'active' : '' }}">Log in</a>
+        </div>
+    </nav>
     @yield('content')
+</section>
 </body>
 </html>

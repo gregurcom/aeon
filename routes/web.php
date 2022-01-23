@@ -36,7 +36,7 @@ Route::get('blog', function () {
 
 Route::get('article', function () {
     return view('article');
-});
+})->name('article');
 
 Route::get('login', function () {
     return view('auth.login');
