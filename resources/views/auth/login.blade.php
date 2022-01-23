@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section('title', 'Progress - login')
+
 @section('header')
     @parent
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
@@ -21,7 +23,7 @@
                 <a href="{{ route('blog') }}">Blog</a>
             </div>
             <div id="login">
-                <a href="{{ route('login') }}" class="neon-button">Log in</a>
+                <a href="{{ route('login') }}" id="active">Log in</a>
             </div>
         </nav>
         <div id="form">

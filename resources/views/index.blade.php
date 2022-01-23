@@ -3,6 +3,7 @@
 @section('header')
     @parent
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <meta property="og:image" content="{{ asset('images/avatar.png') }}" />
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
@@ -27,7 +28,7 @@
         </nav>
         <div id="profile">
             <div id="logo">
-                <img src="images/avatar.png" width="150" height="200" alt="avatar">
+                <img src="{{ asset('images/avatar.png') }}" width="150" height="200" alt="avatar">
             </div>
             <div id="chart">
                 <canvas id="myChart" style="width:100%;max-width:500px;"></canvas>

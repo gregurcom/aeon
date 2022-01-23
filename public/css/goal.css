@@ -2,7 +2,7 @@ ul li {
     margin-bottom: 10px;
     font-size: 20px;
     list-style-type: none;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 li:hover {
