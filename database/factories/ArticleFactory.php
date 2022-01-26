@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -15,7 +17,8 @@ class ArticleFactory extends Factory
     {
         return [
             'title' => $this->faker->title,
-            'body' => $this->faker->text,
+            'introduction' => $this->faker->text,
+            'body' => $this->faker->sentences(30, true),
         ];
     }
 }
