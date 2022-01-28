@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\Achievement;
-use App\Models\Article;
+use App\Models\Post;
 use App\Models\Goal;
 use App\Models\Task;
 use App\Models\User;
@@ -25,7 +27,7 @@ class DatabaseSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             Goal::factory()->create(['user_id' => $this->getRandomUserId()]);
             Task::factory()->create(['user_id' => $this->getRandomUserId()]);
-            Article::factory()->create(['user_id' => $this->getRandomUserId(), 'image' => 'neon.jpeg']);
+            Post::factory()->create(['user_id' => $this->getRandomUserId()]);
             DB::table('achievement_user')->insert([
                 'user_id' => $this->getRandomUserId(),
                 'achievement_id' => $this->getRandomAchievementId(),

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,36 +13,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::redirect('/', 'home');
 
+Route::middleware('auth')->group(function () {
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+});
+Route::middleware('guest')->group(function () {
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login', [AuthController::class, 'authenticate'])->name('authenticate');
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+    Route::get('registration', [AuthController::class, 'registration'])->name('registration');
+    Route::post('registration', [AuthController::class, 'save'])->name('register');
+});
 
-Route::get('goal', function () {
-    return view('goal');
-})->name('goal');
-
-Route::get('task', function () {
-    return view('task');
-})->name('task');
-
-Route::get('achievement', function () {
-    return view('achievement');
-})->name('achievement');
-
-Route::get('blog', function () {
-    return view('blog');
-})->name('blog');
-
-Route::get('article', function () {
-    return view('article');
-})->name('article');
-
-Route::get('login', function () {
-    return view('auth.login');
-})->name('login');
-
-Route::get('registration', function () {
-    return view('auth.registration');
-})->name('registration');
+Route::view('/{any}', 'index')
+    ->middleware('auth')
+    ->where('any', '.*');

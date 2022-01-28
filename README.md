@@ -1,4 +1,4 @@
-# Progress
+# Aeon
 App to track your and your friends progress
 
 ![GitHub Logo](./public/images/home.png)

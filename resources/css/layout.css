@@ -1,21 +1,16 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Space Mono', monospace;
     color: white;
 }
 
 body {
     min-height: 100vh;
-    background-image: url("../../public/images/compute-ea4c57a4.png");
+    background: black !important;
     background-size: 100% 100%;
     align-items: center;
     display: flex;
     justify-content: center;
-}
-
-#content {
-    margin: 50px 40px 0px 40px;
 }
 
 .content {
@@ -29,37 +24,21 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 30px;
     overflow-y: auto;
+    display:flex;
+    flex-direction:column;
 }
 
-nav {
-    display: grid;
-    margin: 20px;
-    height: 40px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
+a:hover {
+    color: white !important;
 }
+
 
 #login {
     text-align: end;
 }
 
-nav div a {
-    text-decoration: none;
-    color: white;
-    font-size: 25px;
-}
-
 .active {
     border-bottom: 2px solid steelblue;
-}
-
-input {
-    height: 30px;
-    width: 250px;
-    padding-left: 10px;
-    border: 2px solid black;
-    border-radius: 60px;
-    background-color: transparent;
-    margin-top: 6px;
 }
 
 button {
@@ -115,4 +94,36 @@ select {
     border-radius: 60px;
     width: 250px;
     padding: 3px;
+}
+
+.nav-item {
+    padding: 0 !important;
+    margin: 10px 25px 10px 25px;
+}
+
+#header-button:hover {
+    background-color: transparent;
+}
+
+#header-button {
+    border: none;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: lightgreen;
+}
+/* Setting the stroke to green using rgb values (0, 128, 0) */
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url(
+    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.container {
+    margin: 10px 40px 0 40px !important;
+}
+
+.nav-buttons {
+    margin-left: 25px;
+    padding-left: 12px;
 }
