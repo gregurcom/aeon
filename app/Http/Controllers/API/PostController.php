@@ -9,10 +9,9 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
-use App\Models\Image;
+use App\Repositories\PostRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
@@ -27,27 +26,9 @@ class PostController extends Controller
         return new PostResource($post);
     }
 
-    public function store(StorePostRequest $postRequest)
+    public function store(StorePostRequest $storePostRequest, PostRepository $postRepository): JsonResponse
     {
-        $image = null;
-        if ($postRequest->hasFile('image')) {
-            $name = $postRequest->file('image')->getClientOriginalName();
-            $path = $postRequest->file('image')->store('public/images');
-
-            $image = Image::create([
-                'name' => $name,
-                'path' => $path,
-            ]);
-        }
-        Post::create(
-            [
-                'image_id' => $image?->id,
-                'user_id' => Auth::id(),
-                'title' => $postRequest->title,
-                'introduction' => $postRequest->introduction,
-                'body' => $postRequest->body,
-            ]
-        );
+        $postRepository->store($storePostRequest);
 
         return response()->json(['message' => 'You have successfully created a post'], Response::HTTP_CREATED);
     }
