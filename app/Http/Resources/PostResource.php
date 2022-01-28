@@ -22,7 +22,7 @@ class PostResource extends JsonResource
             'title' => $this->title,
             'introduction' => $this->introduction,
             'body' => $this->body,
-            'image' => $this->image ? $this->image->name : 'neon.jpeg',
+            'image' => $this->image ? $this->image->name : config('app.default_image'),
             'author' => $this->author->name,
             'can' => $this->permissions(),
             'created_at' => $this->created_at->isoformat('Do MMM YY'),
@@ -32,7 +32,8 @@ class PostResource extends JsonResource
     protected function permissions(): array
     {
         return [
-            'updatePost' => Gate::allows('update-post', $this->resource),
+            'update' => Gate::allows('update-post', $this->resource),
+            'delete' => Gate::allows('delete-post', $this->resource),
         ];
     }
 }

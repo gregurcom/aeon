@@ -1,11 +1,9 @@
 <template>
     <div id="feed">
-        <template v-if="post.can.updatePost">
-            <router-link :to="{ name: 'post.update', params: { id: post.id } }">
-                <button class="btn btn-outline-info mt-2">Edit</button>
-            </router-link>
-            <button @click="delPost(post.id)" class="btn btn-outline-danger mt-2 button-followed">Delete</button>
-        </template>
+        <router-link v-if="post.can.update" :to="{ name: 'post.update', params: { id: post.id } }">
+            <button class="btn btn-outline-info mt-2">Edit</button>
+        </router-link>
+        <button v-if="post.can.delete" @click="delPost(post.id)" class="btn btn-outline-danger mt-2 button-followed">Delete</button>
         <div class="post-image text-center">
             <a href="#" class="h3 text-decoration-none text-white d-block">{{ post.title }}</a>
             <img :src="`../images/${post.image}`" class="mt-3 mb-4" width="400" height="200">
