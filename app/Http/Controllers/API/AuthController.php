@@ -7,15 +7,15 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegistrationRequest;
-use App\Models\User;
+use App\Repositories\AuthRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function register(RegistrationRequest $request): JsonResponse
+    public function register(RegistrationRequest $request, AuthRepository $authRepository): JsonResponse
     {
-        $user = User::create($request->validated());
+        $user = $authRepository->save($request);
 
         return response()->json([
             'token' => $user->createToken('API Token')->plainTextToken

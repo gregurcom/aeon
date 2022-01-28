@@ -6,12 +6,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegistrationRequest;
-use App\Models\User;
+use App\Repositories\AuthRepository;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -20,13 +19,9 @@ class AuthController extends Controller
         return view('auth.registration');
     }
 
-    public function save(RegistrationRequest $request): RedirectResponse
+    public function save(RegistrationRequest $request, AuthRepository $authRepository): RedirectResponse
     {
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $user = $authRepository->save($request);
 
         Auth::login($user);
 
