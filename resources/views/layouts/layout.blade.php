@@ -9,9 +9,6 @@
         <title>@yield('title', 'Progress - home')</title>
         <link rel="shortcut icon" href="{{ asset('images/icon.ico') }}" type="image/x-icon">
         <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/goal.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/index.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&family=Space+Mono&display=swap" rel="stylesheet">
         <script src="{{ asset('js/app.js') }}" defer></script>

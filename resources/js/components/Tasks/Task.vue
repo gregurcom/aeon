@@ -28,7 +28,7 @@
             You don't have tasks yet
         </div>
     </template>
-        <form @submit.prevent="saveTask" class="w-100">
+    <form @submit.prevent="saveTask" class="w-100">
 <!--            <div id="radio">-->
 <!--                <label for="private-radio" id="private">Private</label>-->
 <!--                <input type="radio" id="private-radio" name="visibility" value="private" v-model="form.visibility">-->
@@ -39,13 +39,13 @@
 <!--            <div>-->
 <!--                <input type="datetime-local" class="w-100 bg-dark" name="finished_at" v-model="form.finished_at">-->
 <!--            </div>-->
-            <div>
-                <input type="text" name="title" class="w-100 bg-dark border-bottom-0" placeholder="Write a task..." v-model="form.title">
-            </div>
-        </form>
+        <div>
+            <input type="text" name="title" class="w-100 bg-dark border-bottom-0" placeholder="Write a task..." v-model="form.title">
+        </div>
+    </form>
 </template>
 <script>
-import useTasks from '../composables/tasks'
+import useTasks from '../../composables/tasks'
 import { reactive } from "vue";
 import { onMounted } from 'vue';
 
@@ -84,3 +84,82 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.task {
+    font-size: 20px;
+    list-style-type: none;
+    transition: 0.2s;
+    margin: 10px 40px 0px 40px;
+}
+
+.task:hover {
+    cursor: pointer;
+    background-color: slategrey;
+    height: 30px;
+    padding-top: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+li:hover > .text-muted {
+    color: white;
+}
+
+.task:hover > .email{
+    color: white !important;
+}
+
+input[type=radio] {
+    height: 1em;
+    width: 20px;
+}
+
+input {
+    border-right: none;
+}
+
+#radio {
+    margin-top: 8px;
+}
+
+#radio #public {
+    margin-left: 40px;
+}
+
+form {
+    margin-top:auto;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+}
+
+form input {
+    padding: 15px;
+}
+
+.text-info, .text-danger {
+    margin-right: 30px;
+}
+
+.text-info {
+    margin-left: 15px;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+strike {
+    text-decoration-color: slategrey;
+    text-decoration-thickness: 1px;
+}
+
+.red {
+    display: none;
+}
+
+.blue {
+    display: block;
+}
+</style>

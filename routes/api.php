@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-use App\Http\Controllers\API\ArticleController;
+use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\GoalController;
 use App\Http\Controllers\API\TaskController;
@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/login', [AuthController::class, 'login']);
 
-Route::get('articles/{article}', [ArticleController::class, 'show']);
-Route::get('articles', [ArticleController::class, 'index']);
+Route::get('posts/{post}', [PostController::class, 'show']);
+Route::get('posts', [PostController::class, 'index']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/me', function() {
@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('goals/{goal}', [GoalController::class, 'update']);
     Route::delete('goals/{goal}', [GoalController::class, 'delete']);
 
-    Route::post('articles', [ArticleController::class, 'store']);
-    Route::put('articles/{article}', [ArticleController::class, 'update']);
-    Route::delete('articles/{article}', [ArticleController::class, 'delete']);
+    Route::post('posts', [PostController::class, 'store']);
+    Route::patch('posts/{post}', [PostController::class, 'update'])->middleware('can:update,post');
+    Route::delete('posts/{post}', [PostController::class, 'delete'])->middleware('can:update,post');
 });

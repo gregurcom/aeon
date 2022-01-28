@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Gate;
 
-class ArticleResource extends JsonResource
+class PostResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -21,9 +22,17 @@ class ArticleResource extends JsonResource
             'title' => $this->title,
             'introduction' => $this->introduction,
             'body' => $this->body,
-            'image' => $this->image,
+            'image' => $this->image ? $this->image->name : 'neon.jpeg',
             'author' => $this->author->name,
+            'can' => $this->permissions(),
             'created_at' => $this->created_at->isoformat('Do MMM YY'),
+        ];
+    }
+
+    protected function permissions(): array
+    {
+        return [
+            'updatePost' => Gate::allows('update-post', $this->resource),
         ];
     }
 }

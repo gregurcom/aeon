@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyArticlesTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,13 @@ class ModifyArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->string('image')->default('neon.jpeg')->change();
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('introduction');
+            $table->text('body');
+            $table->foreignId('user_id')->constrained();
+            $table->timestamps();
         });
     }
 
@@ -27,8 +32,6 @@ class ModifyArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->string('image')->change();
-        });
+        Schema::dropIfExists('posts');
     }
 }

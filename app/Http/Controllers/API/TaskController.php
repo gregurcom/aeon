@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TaskRequest;
+use App\Http\Requests\StoreTaskRequest;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\JsonResponse;
@@ -20,14 +20,14 @@ class TaskController extends Controller
         return TaskResource::collection(Auth::user()->tasks()->orderBy('done')->get());
     }
 
-    public function store(TaskRequest $request): JsonResponse
+    public function store(StoreTaskRequest $request): JsonResponse
     {
         $task = Task::create(array_merge(['user_id' => Auth::id()], $request->validated()));
 
         return response()->json($task, Response::HTTP_CREATED);
     }
 
-    public function update(TaskRequest $request, Task $task): JsonResponse
+    public function update(StoreTaskRequest $request, Task $task): JsonResponse
     {
         $task->update($request->validated());
 

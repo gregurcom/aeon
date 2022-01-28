@@ -1,7 +1,11 @@
 <template>
     <div class="nav-buttons">
-        <button class="btn btn-outline-info mt-2">Write post</button>
-        <button class="btn btn-outline-info mt-2 button-followed">Followed</button>
+        <router-link :to="{ name: 'post.store' }">
+            <button class="btn btn-outline-info mt-2">Write post</button>
+        </router-link>
+        <router-link :to="{ name: 'followed' }">
+            <button class="btn btn-outline-info mt-2 button-followed">Followed</button>
+        </router-link>
     </div>
     <div class="row mt-5 mb-3">
         <div class="col-md-3 col text-center">
@@ -61,3 +65,45 @@
 
 </script>
 
+<style scoped>
+#logo {
+    text-align: center;
+}
+
+@media (max-width: 751px) {
+    #logo img {
+        width: 100px;
+        height: 120px;
+    }
+
+    #chart-line {
+        margin-top: 30px;
+    }
+
+    #chart-pie {
+        margin-top: 30px;
+    }
+
+    .stat {
+        text-align: center;
+        margin-top: 25px;
+    }
+}
+
+@media (min-width: 768px) {
+    .row {
+        margin-top: 80px;
+    }
+
+    .button-followed {
+        margin-left: 10px;
+    }
+}
+
+.circle {
+    object-fit: cover;
+    border-radius:50%;
+    width: 150px;
+    height: 150px;
+}
+</style>

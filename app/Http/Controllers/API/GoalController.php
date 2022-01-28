@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\GoalRequest;
+use App\Http\Requests\StoreGoalRequest;
 use App\Http\Resources\GoalResource;
 use App\Models\Goal;
 use Illuminate\Http\JsonResponse;
@@ -20,14 +20,14 @@ class GoalController extends Controller
         return GoalResource::collection(Auth::user()->goals);
     }
 
-    public function store(GoalRequest $request): JsonResponse
+    public function store(StoreGoalRequest $request): JsonResponse
     {
         $goal = Goal::create(array_merge(['user_id' => Auth::id()], $request->validated()));
 
         return response()->json($goal, Response::HTTP_CREATED);
     }
 
-    public function update(GoalRequest $request, Goal $goal): JsonResponse
+    public function update(StoreGoalRequest $request, Goal $goal): JsonResponse
     {
         $goal = $goal->update($request->validated());
 

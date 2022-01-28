@@ -2,28 +2,28 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 
-export default function useArticles() {
-    const article = ref([])
-    const articles = ref([])
+export default function usePosts() {
+    const post = ref([])
+    const posts = ref([])
 
     const errors = ref('')
     const router = useRouter()
 
-    const getArticles = async () => {
-        let response = await axios.get('/api/articles')
-        articles.value = response.data.data
+    const getPosts = async () => {
+        let response = await axios.get('/api/posts')
+        posts.value = response.data.data
     }
 
-    const getArticle = async (id) => {
-        let response = await axios.get(`/api/articles/${id}`)
-        article.value = response.data.data
+    const getPost = async (id) => {
+        let response = await axios.get(`/api/posts/${id}`)
+        post.value = response.data.data
     }
 
-    const storeArticle = async (data) => {
+    const storePost = async (data) => {
         errors.value = ''
         try {
-            await axios.post('/api/articles', data)
-            await router.push({name: 'articles'})
+            await axios.post('/api/posts', data)
+            await router.push({name: 'home'})
         } catch (e) {
             if (e.response.status === 422) {
                 for (const key in e.response.data.errors) {
@@ -34,11 +34,11 @@ export default function useArticles() {
 
     }
 
-    const updateArticle = async (id) => {
+    const updatePost = async (id) => {
         errors.value = ''
         try {
-            await axios.patch(`/api/articles/${id}`, article.value)
-            await router.push({ name: 'articles' })
+            await axios.patch(`/api/posts/${id}`, post.value)
+            await router.push({ name: 'home' })
         } catch (e) {
             if (e.response.status === 422) {
                 for (const key in e.response.data.errors) {
@@ -48,11 +48,11 @@ export default function useArticles() {
         }
     }
 
-    const deleteArticle = async (id) => {
+    const deletePost = async (id) => {
         errors.value = ''
         try {
-            await axios.delete(`/api/articles/${id}`)
-            await router.push({ name: 'articles' })
+            await axios.delete(`/api/posts/${id}`)
+            await router.push({ name: 'home' })
         } catch (e) {
             if (e.response.status === 422) {
                 for (const key in e.response.data.errors) {
@@ -64,12 +64,12 @@ export default function useArticles() {
 
     return {
         errors,
-        article,
-        articles,
-        getArticle,
-        getArticles,
-        storeArticle,
-        updateArticle,
-        deleteArticle
+        post,
+        posts,
+        getPost,
+        getPosts,
+        storePost,
+        updatePost,
+        deletePost
     }
 }
