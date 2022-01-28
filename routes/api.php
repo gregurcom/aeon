@@ -45,5 +45,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::post('posts', [PostController::class, 'store']);
     Route::patch('posts/{post}', [PostController::class, 'update'])->middleware('can:update,post');
-    Route::delete('posts/{post}', [PostController::class, 'delete'])->middleware('can:update,post');
+    Route::delete('posts/{post}', [PostController::class, 'delete'])->middleware('can:delete,post');
 });

@@ -2,11 +2,6 @@
 
 @section('title', 'Progress - registration')
 
-@section('header')
-    @parent
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
-@endsection
-
 @section('content')
     <div class="container">
         <div class="row">

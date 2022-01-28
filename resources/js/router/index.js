@@ -21,7 +21,7 @@ const routes = [
         component: Goal
     },
     {
-        path: '/posts/:id',
+        path: '/posts/:id/view',
         name: 'post',
         component: Post,
         props: true

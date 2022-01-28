@@ -6,7 +6,7 @@
         <button v-if="post.can.delete" @click="delPost(post.id)" class="btn btn-outline-danger mt-2 button-followed">Delete</button>
         <div class="post-image text-center">
             <a href="#" class="h3 text-decoration-none text-white d-block">{{ post.title }}</a>
-            <img :src="`../images/${post.image}`" class="mt-3 mb-4" width="400" height="200">
+            <img :src="`../../images/${post.image}`" class="mt-3 mb-4" width="400" height="200">
         </div>
         <p class="text-muted">{{ post.author }} {{ post.created_at }}</p>
         <p>

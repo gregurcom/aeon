@@ -14,10 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::redirect('/', 'home');
+Route::view('/blog', 'index')->withoutMiddleware('auth');
+Route::view('/posts/{post}/view', 'index')->withoutMiddleware('auth');
 
 Route::middleware('auth')->group(function () {
+    Route::view('/home', 'index');
+    Route::view('/tasks', 'index');
+    Route::view('/goals', 'index');
+    Route::view('/achievements', 'index');
+    Route::view('/posts/store', 'index');
+    Route::view('/posts/{post}/update', 'index')->middleware('can:update,post');
+    Route::view('/followed', 'index');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
+
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('login', [AuthController::class, 'authenticate'])->name('authenticate');
@@ -25,7 +35,3 @@ Route::middleware('guest')->group(function () {
     Route::get('registration', [AuthController::class, 'registration'])->name('registration');
     Route::post('registration', [AuthController::class, 'save'])->name('register');
 });
-
-Route::view('/{any}', 'index')
-    ->middleware('auth')
-    ->where('any', '.*');
