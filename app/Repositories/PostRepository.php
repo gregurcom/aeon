@@ -15,8 +15,8 @@ class PostRepository
     {
         $image = null;
         if ($storePostRequest->hasFile('image')) {
-            $name = $storePostRequest->file('image')->getClientOriginalName();
-            $path = $storePostRequest->file('image')->store('public/images');
+            $name = $storePostRequest->image->getClientOriginalName();
+            $path = $storePostRequest->image->store('public/images');
 
             $image = Image::create([
                 'name' => $name,

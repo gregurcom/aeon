@@ -38,7 +38,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function authenticate(LoginRequest $request)
+    public function authenticate(LoginRequest $request): RedirectResponse
     {
         if (Auth::attempt($request->validated())) {
             $request->session()->regenerate();
