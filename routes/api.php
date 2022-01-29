@@ -27,26 +27,28 @@ Route::get('posts/{post}', [PostController::class, 'show']);
 Route::get('posts', [PostController::class, 'index']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/me', function() {
-        return auth()->user();
-    });
-
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 
     Route::get('users/auth', [UserController::class, 'getAuth']);
 
-    Route::get('tasks', [TaskController::class, 'index']);
-    Route::post('tasks', [TaskController::class, 'store']);
-    Route::put('tasks/{task}', [TaskController::class, 'update']);
-    Route::patch('tasks/{task}/done', [TaskController::class, 'done']);
-    Route::delete('tasks/{task}', [TaskController::class, 'delete']);
+    Route::controller(TaskController::class)->group(function () {
+        Route::get('tasks', 'index');
+        Route::post('tasks', 'store');
+        Route::put('tasks/{task}', 'update');
+        Route::patch('tasks/{task}/done', 'done');
+        Route::delete('tasks/{task}', 'delete');
+    });
 
-    Route::get('goals', [GoalController::class, 'index']);
-    Route::post('goals', [GoalController::class, 'store']);
-    Route::put('goals/{goal}', [GoalController::class, 'update']);
-    Route::delete('goals/{goal}', [GoalController::class, 'delete']);
+    Route::controller(GoalController::class)->group(function () {
+        Route::get('goals', 'index');
+        Route::post('goals', 'store');
+        Route::put('goals/{goal}', 'update');
+        Route::delete('goals/{goal}', 'delete');
+    });
 
-    Route::post('posts', [PostController::class, 'store']);
-    Route::patch('posts/{post}', [PostController::class, 'update'])->middleware('can:update,post');
-    Route::delete('posts/{post}', [PostController::class, 'delete'])->middleware('can:delete,post');
+    Route::controller(PostController::class)->group(function () {
+        Route::post('posts', 'store');
+        Route::patch('posts/{post}', 'update')->middleware('can:update,post');
+        Route::delete('posts/{post}', 'delete')->middleware('can:delete,post');
+    });
 });

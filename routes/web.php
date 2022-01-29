@@ -28,10 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::middleware('guest')->group(function () {
-    Route::get('login', [AuthController::class, 'login'])->name('login');
-    Route::post('login', [AuthController::class, 'authenticate'])->name('authenticate');
+Route::middleware('guest')->controller(AuthController::class)->group(function () {
+    Route::get('login', 'login')->name('login');
+    Route::post('login', 'authenticate')->name('authenticate');
 
-    Route::get('registration', [AuthController::class, 'registration'])->name('registration');
-    Route::post('registration', [AuthController::class, 'save'])->name('register');
+    Route::get('registration', 'registration')->name('registration');
+    Route::post('registration', 'save')->name('register');
 });
