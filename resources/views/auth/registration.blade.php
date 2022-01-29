@@ -13,6 +13,8 @@
                     <input type="text" name="email" placeholder="Email..." class="bg-transparent form-control mt-2">
                     <input type="password" name="password" placeholder="Password..." class="bg-transparent form-control mt-2">
                     <input type="password" name="password_confirmation" placeholder="Password confirmation..." class="bg-transparent form-control mb-2 mt-2">
+                    <input type="text" name="city" placeholder="City...(optional)" class="bg-transparent form-control mt-2">
+                    <input type="text" name="country" placeholder="Country...(optional)" class="bg-transparent form-control mt-2">
                     <a href="{{ route('login') }}" class="text-dark">Login</a>
                     <button type="submit" class="form-control btn btn-outline-dark mt-3">Register</button>
                 </form>

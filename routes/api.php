@@ -6,6 +6,7 @@ use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\GoalController;
 use App\Http\Controllers\API\TaskController;
+use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
     Route::post('/auth/logout', [AuthController::class, 'logout']);
+
+    Route::get('users/auth', [UserController::class, 'getAuth']);
 
     Route::get('tasks', [TaskController::class, 'index']);
     Route::post('tasks', [TaskController::class, 'store']);

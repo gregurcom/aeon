@@ -12,24 +12,26 @@
             <div id="logo" class="mb-2">
                 <img src='images/avatar.png' alt="avatar" class="circle">
             </div>
-            <span class="fs-5">John Doe</span>
+            <span class="fs-5">{{ user.name }}</span>
         </div>
         <div class="col-md-3 fs-5 stat">
             <div>
-                Tasks: 30 (20 done)
+                Tasks: {{ user.tasks }}
             </div>
             <div>
-                Goals: 4
+                Goals: {{ user.goals }}
             </div>
             <div>
-                Achievements: 2
+                Achievements: {{ user.achievements }}
             </div>
             <div>
-                Posts: 0
+                Posts: {{ user.posts }}
             </div>
-            <div class="py-3">
-                City: Balti (Moldova)
-            </div>
+            <template v-if="user.city || user.country">
+                <div class="py-3">
+                    Location: {{ user.city }} {{ user.country }}
+                </div>
+            </template>
         </div>
         <div class="col-md-4 col">
             <div id="chart-line">
@@ -62,7 +64,20 @@
 </template>
 
 <script>
+import useUsers from "../composables/users";
+import {onMounted} from "vue";
+export default {
+    setup() {
+        const { errors, user, getAuthUser} = useUsers()
+        onMounted(getAuthUser)
 
+        return {
+            errors,
+            user,
+            getAuthUser,
+        }
+    }
+}
 </script>
 
 <style scoped>
@@ -77,10 +92,6 @@
     }
 
     #chart-line {
-        margin-top: 30px;
-    }
-
-    #chart-pie {
         margin-top: 30px;
     }
 
