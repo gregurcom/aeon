@@ -9,7 +9,7 @@
     </div>
     <div class="row mt-5 mb-3">
         <div class="col-md-3 col text-center">
-            <div id="logo" class="mb-2">
+            <div id="logo" class="mb-3">
                 <img src='images/avatar.png' alt="avatar" class="circle">
             </div>
             <span class="fs-5">{{ user.name }}</span>

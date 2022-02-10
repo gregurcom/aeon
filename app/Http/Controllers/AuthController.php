@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Events\Registration;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegistrationRequest;
 use App\Repositories\AuthRepository;
@@ -22,8 +23,8 @@ class AuthController extends Controller
     public function save(RegistrationRequest $request, AuthRepository $authRepository): RedirectResponse
     {
         $user = $authRepository->save($request);
-
         Auth::login($user);
+        event(new Registration(Auth::user()));
 
         return redirect('/home');
     }
