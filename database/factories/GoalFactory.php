@@ -16,8 +16,8 @@ class GoalFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->title,
-            'finished_at' => $this->faker->dateTimeBetween('-10 days', 'now'),
+            'title' => $this->faker->realTextBetween(5, 20),
+            'finished_at' => $this->faker->dateTimeBetween('now', '+10 days'),
         ];
     }
 }

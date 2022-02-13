@@ -19,7 +19,7 @@ class CreateGoalsTable extends Migration
             $table->id();
             $table->string('title');
             $table->enum('visibility', ['private', 'public'])->default('private');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->datetime('finished_at')->nullable();
             $table->timestamps();
         });

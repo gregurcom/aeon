@@ -21,7 +21,7 @@ class CreateTasksTable extends Migration
             $table->text('description')->nullable();
             $table->boolean('done')->default(0);
             $table->enum('visibility', ['private', 'public'])->default('private');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->datetime('finished_at')->nullable();
             $table->timestamps();
         });

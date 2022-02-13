@@ -24,15 +24,14 @@ class DatabaseSeeder extends Seeder
         User::factory()->count(10)->create(['avatar' => 'avatar.png']);
         Achievement::factory()->count(10)->create();
 
-        for ($i = 0; $i < 10; $i++) {
-            Goal::factory()->create(['user_id' => $this->getRandomUserId()]);
+        for ($i = 0; $i < 20; $i++) {
+            if ($i <= 11) {
+                Goal::factory()->create(['user_id' => $this->getRandomUserId()]);
+            }
             Task::factory()->create(['user_id' => $this->getRandomUserId()]);
             Post::factory()->create(['user_id' => $this->getRandomUserId()]);
-            DB::table('achievement_user')->insert([
-                'user_id' => $this->getRandomUserId(),
-                'achievement_id' => $this->getRandomAchievementId(),
-            ]);
         }
+        User::factory()->count(10)->create(['avatar' => 'avatar.png']);
     }
 
     private function getRandomUserId(): int
