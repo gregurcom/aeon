@@ -10,6 +10,7 @@
         "laravel/tinker": "^2.5",
         "mll-lab/laravel-graphql-playground": "^2.5",
         "nuwave/lighthouse": "^5.33",
+        "spatie/laravel-query-builder": "^4.0.3",
         "spatie/laravel-sitemap": "^6.1"
     },
     "require-dev": {

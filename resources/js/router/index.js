@@ -8,6 +8,7 @@ import PostStore from '../components/Posts/PostStore.vue'
 import PostUpdate from '../components/Posts/PostUpdate.vue'
 import Home from '../components/Home.vue'
 import Achievement from '../components/Achievement.vue'
+import AssignTask from '../components/Assign/AssignTask'
 
 const routes = [
     {
@@ -56,6 +57,11 @@ const routes = [
         path: '/followed',
         name: 'followed',
         component: Task
+    },
+    {
+        path: '/assign/task',
+        name: 'assign.task',
+        component: AssignTask,
     }
 ];
 

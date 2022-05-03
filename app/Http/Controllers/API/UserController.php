@@ -6,12 +6,14 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
-    public function getAuth(): UserResource
+    public function getAuth(): JsonResponse
     {
-        return new UserResource(Auth::user());
+        return response()->json(new UserResource(Auth::user()), Response::HTTP_OK);
     }
 }

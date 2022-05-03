@@ -6,7 +6,7 @@
 
 body {
     min-height: 100vh;
-    background: black !important;
+    background: url("../../public/images/compute-ea4c57a4.png") !important;
     background-size: 100% 100%;
     align-items: center;
     display: flex;

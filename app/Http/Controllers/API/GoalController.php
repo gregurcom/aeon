@@ -9,15 +9,16 @@ use App\Http\Requests\StoreGoalRequest;
 use App\Http\Resources\GoalResource;
 use App\Models\Goal;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class GoalController extends Controller
 {
-    public function index(): AnonymousResourceCollection
+    public function index(): JsonResponse
     {
-        return GoalResource::collection(Auth::user()->goals);
+        $goals = Auth::user()->goals;
+
+        return response()->json(GoalResource::collection($goals), Response::HTTP_OK);
     }
 
     public function store(StoreGoalRequest $request): JsonResponse
@@ -34,7 +35,7 @@ class GoalController extends Controller
         return response()->json($goal, Response::HTTP_OK);
     }
 
-    public function delete(Goal $goal): \Illuminate\Http\Response
+    public function delete(Goal $goal): Response
     {
         $goal->delete();
 

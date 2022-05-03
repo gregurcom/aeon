@@ -9,39 +9,40 @@ use App\Http\Requests\StoreTaskRequest;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends Controller
 {
-    public function index(): AnonymousResourceCollection
+    public function index(): JsonResponse
     {
-        return TaskResource::collection(Auth::user()->tasks()->orderBy('done')->get());
+        $tasks = Auth::user()->tasks()->orderBy('done')->get();
+
+        return response()->json(TaskResource::collection($tasks), Response::HTTP_OK);
     }
 
     public function store(StoreTaskRequest $request): JsonResponse
     {
         $task = Task::create(array_merge(['user_id' => Auth::id()], $request->validated()));
 
-        return response()->json($task, Response::HTTP_CREATED);
+        return response()->json(new TaskResource($task), Response::HTTP_CREATED);
     }
 
     public function update(StoreTaskRequest $request, Task $task): JsonResponse
     {
-        $task->update($request->validated());
+        $task = $task->update($request->validated());
 
-        return response()->json($task, Response::HTTP_OK);
+        return response()->json(new TaskResource($task), Response::HTTP_OK);
     }
 
     public function done(Task $task): JsonResponse
     {
-        $task->done == 1 ? $task->update(['done' => 0]) : $task->update(['done' => 1]);
+        $task = $task->done == 1 ? $task->update(['done' => 0]) : $task->update(['done' => 1]);
 
-        return response()->json($task, Response::HTTP_OK);
+        return response()->json(new TaskResource($task), Response::HTTP_OK);
     }
 
-    public function delete(Task $task): \Illuminate\Http\Response
+    public function delete(Task $task): Response
     {
         $task->delete();
 

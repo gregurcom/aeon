@@ -11,36 +11,39 @@ use App\Http\Resources\PostResource;
 use App\Models\Post;
 use App\Repositories\PostRepository;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
 {
-    public function index(): AnonymousResourceCollection
+    public function __construct(private PostRepository $postRepository) {}
+
+    public function index(): JsonResponse
     {
-        return PostResource::collection(Post::all());
+        $posts = $this->postRepository->getPosts();
+
+        return response()->json(PostResource::collection($posts), Response::HTTP_OK);
     }
 
-    public function show(Post $post): PostResource
+    public function show(Post $post): JsonResponse
     {
-        return new PostResource($post);
+        return response()->json(new PostResource($post), Response::HTTP_OK);
     }
 
-    public function store(StorePostRequest $storePostRequest, PostRepository $postRepository): JsonResponse
+    public function store(StorePostRequest $storePostRequest): JsonResponse
     {
-        $postRepository->store($storePostRequest);
+        $post = $this->postRepository->store($storePostRequest);
 
-        return response()->json(['message' => 'You have successfully created a post'], Response::HTTP_CREATED);
+        return response()->json(new PostResource($post), Response::HTTP_CREATED);
     }
 
     public function update(Post $post, UpdatePostRequest $postRequest): JsonResponse
     {
-        $post->update($postRequest->validated());
+        $post = $post->update($postRequest->validated());
 
-        return response()->json($post, Response::HTTP_OK);
+        return response()->json(new PostResource($post), Response::HTTP_OK);
     }
 
-    public function delete(Post $post): \Illuminate\Http\Response
+    public function delete(Post $post): Response
     {
         $post->delete();
 

@@ -3,6 +3,9 @@
         <router-link :to="{ name: 'post.store' }">
             <button class="btn btn-outline-info mt-2">Write post</button>
         </router-link>
+        <router-link :to="{ name: 'assign.task' }">
+            <button class="btn btn-outline-info mt-2 button-followed">Assign task</button>
+        </router-link>
         <router-link :to="{ name: 'followed' }">
             <button class="btn btn-outline-info mt-2 button-followed">Followed</button>
         </router-link>

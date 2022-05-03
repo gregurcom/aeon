@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::view('/posts/store', 'index');
     Route::view('/posts/{post}/update', 'index')->middleware('can:update,post');
     Route::view('/followed', 'index');
+    Route::view('/assign/task', 'index');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
 
